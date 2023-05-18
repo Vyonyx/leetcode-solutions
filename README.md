@@ -1,4 +1,4 @@
-- Leetcode Solutions (by Shaneel Kumar)
+# Leetcode Solutions (by Shaneel Kumar)
 
 This repository is a collection of leetcode solutions that I've used to pass the challenges on their platform.
 
