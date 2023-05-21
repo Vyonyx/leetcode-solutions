@@ -18,39 +18,14 @@ class ListNode {
  *     }
  * }
  */
-
 function addTwoNumbers(
   l1: ListNode | null,
-  l2: ListNode | null
+  l2: ListNode | null,
+  carry: number = 0
 ): ListNode | null {
-  let val1 = getListValue(l1);
-  let val2 = getListValue(l2);
+  if (l1 == null && l2 == null && carry == 0) return null;
 
-  const total = val1 + val2;
-  const totalStrArray = Array.from(total.toString());
-  let node: ListNode | null = null;
-
-  totalStrArray.forEach((char) => {
-    const newNode = new ListNode(Number.parseInt(char));
-    if (!node) node = newNode;
-    else {
-      newNode.next = node;
-      node = newNode;
-    }
-  });
-
-  return node || null;
-}
-
-function getListValue(node: ListNode | null) {
-  if (!node) return 0;
-
-  let tmp = "";
-
-  do {
-    tmp = node.val.toString() + tmp;
-    node = node.next;
-  } while (node);
-
-  return Number.parseInt(tmp);
+  const total = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + carry;
+  carry = Math.floor(total / 10);
+  return new ListNode(total % 10, addTwoNumbers(l1?.next, l2?.next, carry));
 }
