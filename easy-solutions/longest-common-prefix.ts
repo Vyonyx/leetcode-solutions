@@ -1,24 +1,22 @@
-/*
- * Check to see if an array of words share a prefix substring, returning the substring if all words match.
- */
 function longestCommonPrefix(strs: string[]): string {
-  // Prefix variable gets manipulated during the for loops.
-  let prefix = "";
+  // edge cases where strs array is shorter than expected
+  if (strs.length < 1) return "";
+  else if (strs.length === 1) return strs[0];
+
+  // sorting the array allows the retrieval of the shortest word
+  strs.sort((a, b) => a.length - b.length);
   const firstWord = strs[0];
+  let prefix = "";
 
+  // loop through the characters of an array
   for (let i = 0; i < firstWord.length; i++) {
-    // Char variable also gets manipulated by the following loop.
-    let char = "";
+    const char = firstWord[i];
 
-    for (let j = 0; j < strs.length; j++) {
-      // If the two word's characters match, change the char variable's value to the common character.
-      if (firstWord[i] === strs[j][i]) {
-        char = firstWord[i];
-        // If the characters don't match, reset the char variable.
-      } else char = "";
-    }
-    // If all words share the same character, add that char to the prefix variable.
-    if (char) prefix += char;
+    // and check it against the character of the same index on every word
+    const isMatch = strs.every((word) => word[i] === char);
+    if (isMatch) prefix += char;
+    // and if it doesn't match, break out of the loop
+    else break;
   }
 
   return prefix;
