@@ -8,4 +8,4 @@ These solutions also include SQL querys for common database manipulations (in th
 
 ## NeetCode Progress
 
-I am using the Neetcode platform to work through collections of Leetcode questions that involve the use of similar concepts (ie. data structure or algorithm type).
+I am using the Neetcode platform to work through collections of Leetcode questions that involve the use of similar concepts (ie. data structure or algorithm type). I am currently focused on solving "Stack" based problems.
