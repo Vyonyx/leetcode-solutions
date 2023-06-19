@@ -25,3 +25,6 @@ function expand(s: string, left: number, right: number) {
 
     return s.substring(left + 1, right);
 }
+
+// The trick is to expand out from each character in the input string
+// and evaluate each palindrome against the previous longest
